@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Gentec | Management Training and IT Tools</title>
+<h:outputStylesheet name="portal-gentec-min.css" library="css"/>
+</h:head>
+<h:body>
+	<f:metadata>
+		<f:viewParam name="key" value="#{bannerMbean.facade.key}"/>
+	</f:metadata>
+	<div id="gentec-portal-admx-conteudo-text">
+		<p:panel header="&raquo; Banner &raquo; Visualizar">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#"/>
+				<h:outputLabel value="#{bannerMbean.facade.banner2.id}"/>
+				
+				<h:outputLabel value="Posição:"/>
+				<h:outputLabel value="#{bannerMbean.facade.banner2.posicao}"/>
+				
+				<h:outputLabel value="Descrição:"/>
+				<h:outputLabel value="#{bannerMbean.facade.banner2.descricao}"/>
+				
+				<h:outputLabel value="Imagem:"/>
+				<h:graphicImage width="500" height="280" value="/resources/carousel/#{bannerMbean.facade.banner2.imagem}"/>
+			</h:panelGrid>
+			<h:form>
+				<p:commandButton icon="ui-icon-circle-close" value="Fechar" onclick="window.close()"/>
+			</h:form>
+		</p:panel>
+	</div>
+</h:body>
+
+</html>

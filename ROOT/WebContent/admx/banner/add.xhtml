@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/templateAdmx.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-admx-conteudo-text">
+			<br/>
+			<p:panel header="&raquo; Banner &raquo; Novo">
+				<p:fieldset legend="Cadastro">
+					<h:form enctype="multipart/form-data" acceptcharset="ISO-8859-1">
+						<p:messages autoUpdate="true"/>
+						<h:panelGrid columns="2">
+							<p:outputLabel for="inputDescricao" value="Descrição:"/>
+							<p:inputText id="inputDescricao" maxlength="150" style="width: 500px;" required="true" 
+								value="#{bannerMbean.facade.banner.descricao}"/>
+								
+							<p:outputLabel for="inputPosicao" value="Posição:"/>
+							<p:inputMask mask="9?9" id="inputPosicao" required="true" 
+								value="#{bannerMbean.facade.banner.posicao}"/>
+								
+							<h:outputLabel/>
+							<h:outputLabel value="Obs: Posição de exibição."/>
+							
+							<p:outputLabel for="inputImagem" value="Upload:"/>
+							<p:fileUpload id="inputImagem" value="#{bannerMbean.facade.banner.uploadedFile}" mode="simple"/>  
+							
+							<h:outputLabel/>
+							<h:outputLabel value="Obs: Dimensão 930x380."/>
+						</h:panelGrid>
+						<p:commandButton ajax="false" value="Salvar" update="@form" action="#{bannerMbean.salvar}"/>
+					</h:form>
+				</p:fieldset>
+			</p:panel>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

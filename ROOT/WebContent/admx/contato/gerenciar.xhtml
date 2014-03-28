@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/templateAdmx.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-admx-conteudo-text">
+			<br/>
+			<p:panel header="&raquo; Contato &raquo; Gerenciar">
+				<p:dataTable var="item" value="#{contatoMbean.facade.contatos}" 
+					rows="20" paginator="true" emptyMessage="0 Registros">
+					<f:facet name="header">
+						[+] Contatos
+					</f:facet>
+					<p:column headerText="nome">
+						<h:outputText value="#{item.nome}"/>
+					</p:column>
+					<p:column filterBy="#{item.telefone}" headerText="telefone">
+						<h:outputText value="#{item.telefone}"/>
+					</p:column>
+					<p:column filterBy="#{item.cidade}" headerText="cidade">
+						<h:outputText value="#{item.cidade}"/>
+					</p:column>
+					<p:column style="text-align: center; width: 80px;">
+						<p:commandButton icon="ui-icon-zoomin" onclick="goPage('./vizualizar.jsf?key=#{item.id}');">
+							<f:setPropertyActionListener target="#{contatoMbean.facade.contato2}" value="#{item}"/>
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-trash" onclick="diagdelete.show()">
+							<f:setPropertyActionListener target="#{contatoMbean.facade.contato2}" value="#{item}"/>
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</div>
+		
+		<p:dialog widgetVar="diagdelete" header="[+] Delete" width="300"
+			modal="true" closable="false" resizable="false">
+			<h:form>
+				<h:outputText value="Deseja prosseguir como esta operação?"/>
+				<br/><br/>
+				<p:commandButton value="Sim" actionListener="#{contatoMbean.delete}" update="@(.ui-datatable)" onclick="diagdelete.hide()"/>
+				<p:commandButton value="Não" onclick="diagdelete.hide()">
+					<f:setPropertyActionListener target="#{contatoMbean.facade.contato2}" value="#{null}"/>
+				</p:commandButton>
+			</h:form>
+		</p:dialog>
+	</ui:define>
+</ui:composition>
+</html>

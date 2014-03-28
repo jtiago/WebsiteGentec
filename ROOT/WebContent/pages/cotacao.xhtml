@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/template.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-body-conteudo" style="margin-top: -3px;">
+			<div id="gentec-portal-body-conteudo-text">
+				<h:form id="formulario">
+					<p:messages rendered="#{cotacaoMbean.rendered}"/>
+					<p:panel header="&raquo; Pedido de Cotação" styleClass="gentec-portal-body-conteudo-contato">
+						<br/><br/>
+						<h:panelGrid>
+							<p:outputLabel for="inputCliente" value="Nome de Cliente:"/>
+							<p:inputText id="inputCliente" style="width: 250px;" required="true" value="#{cotacaoMbean.facade.cotacao.nomeCliente}"/>
+							
+							<p:outputLabel for="inputEmpresa" value="Nome da Empresa:"/>
+							<p:inputText id="inputEmpresa" style="width: 250px;" required="true" value="#{cotacaoMbean.facade.cotacao.nomeEmpresa}"/>
+							
+							<p:outputLabel for="inputCnpj" value="CNPJ"/>
+							<p:inputMask mask="99.999.999/9999-99" id="inputCnpj" required="true" value="#{cotacaoMbean.facade.cotacao.numeroCnpj}"/>
+							
+							<p:outputLabel for="inputTelefone" value="Telefone:"/>
+							<p:inputMask mask="(99) 9999-9999" id="inputTelefone" required="true" value="#{cotacaoMbean.facade.cotacao.numeroTelefone}"/>
+							
+							<p:outputLabel for="inputEmail" value="E-mail:"/>
+							<p:inputText id="inputEmail" style="width: 250px;" validator="emailValidator" required="true" value="#{cotacaoMbean.facade.cotacao.email}"/>
+							
+							<p:outputLabel for="inputObservacoes" value="Observações:"/>
+							<p:inputTextarea id="inputObservacoes" style="width: 250px;" required="true" value="#{cotacaoMbean.facade.cotacao.observacoes}"/>
+						</h:panelGrid>
+						<br/>
+						<p:separator/>
+						<br/>
+						<p:commandButton value="Solicitar Cotação" update=":formulario" actionListener="#{cotacaoMbean.salvar}"
+							onclick="lazyload()"/>
+					</p:panel>
+				</h:form>
+				<h:form>
+					<p:remoteCommand name="lazyload">  
+				        <f:setPropertyActionListener value="#{false}" target="#{cotacaoMbean.rendered}" />  
+				    </p:remoteCommand> 
+				</h:form>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

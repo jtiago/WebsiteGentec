@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/template.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-body-conteudo">
+			<div id="gentec-portal-body-conteudo-text">
+			
+				<c:forEach var="item" items="#{produtoMbean.facade.produtos}">
+					<p:panel header="${item.titulo}">
+						<div class="gentec-portal-body-conteudo-produto-imagem">
+							<p:graphicImage width="300" url="/resources/produtos/${item.imagem}"/>
+						</div>
+						<div class="gentec-portal-body-conteudo-produto-descicao">
+							<br/><br/>
+							<h:outputText value="${item.texto}" escape="false"/>
+						</div>
+						<div class="clear"></div>
+					</p:panel>
+					<br/>
+				</c:forEach>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

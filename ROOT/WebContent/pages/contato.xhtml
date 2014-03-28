@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/template.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-body-conteudo" style="margin-top: -3px;">
+			<div id="gentec-portal-body-conteudo-text">
+				<h:form id="formulario">
+					<p:messages rendered="#{contatoMbean.rendered}"/>
+					<p:panel header="&raquo; Fale Conosco" styleClass="gentec-portal-body-conteudo-contato">
+						<br/><br/>
+						<h:panelGrid>
+							<p:outputLabel for="inputNome" value="Nome:"/>
+							<p:inputText id="inputNome" style="width: 250px;" required="true" value="#{contatoMbean.facade.contato.nome}"/>
+							
+							<p:outputLabel for="inputTelefone" value="Telefone:"/>
+							<p:inputMask mask="(99) 9999-9999" id="inputTelefone" required="true" value="#{contatoMbean.facade.contato.telefone}"/>
+							
+							<p:outputLabel for="inputEmail" value="E-mail:"/>
+							<p:inputText id="inputEmail" style="width: 250px;" validator="emailValidator" required="true" value="#{contatoMbean.facade.contato.email}"/>
+							
+							<p:outputLabel for="inputCidade" value="Cidade:"/>
+							<p:inputText id="inputCidade" style="width: 250px;" required="true" value="#{contatoMbean.facade.contato.cidade}"/>
+							
+							<p:outputLabel for="inputEstado" value="Estado:"/>
+							<p:inputText id="inputEstado" maxlength="2" required="true" value="#{contatoMbean.facade.contato.estado}"/>
+							
+							<p:outputLabel for="inputMensage" value="Deixa sua Mensagem:"/>
+							<p:inputTextarea id="inputMensage" style="width: 250px;" required="true" value="#{contatoMbean.facade.contato.mensagem}"/>
+							
+							<h:outputLabel/>
+							<p:selectBooleanCheckbox itemLabel="Desejo receber novidades e informativos?" value="#{contatoMbean.facade.contato.newsletter}"/>
+						</h:panelGrid>
+						<br/>
+						<p:separator/>
+						<br/>
+						<p:commandButton value="Enviar" update="@form" actionListener="#{contatoMbean.salvar}"
+							onclick="lazyload()"/>
+					</p:panel>
+				</h:form>
+				<h:form>
+					<p:remoteCommand name="lazyload">  
+				        <f:setPropertyActionListener value="#{false}" target="#{contatoMbean.rendered}" />  
+				    </p:remoteCommand> 
+				</h:form>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/templateAdmx.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-admx-conteudo-text">
+			<br/>
+			<p:panel header="&raquo; Usuário &raquo; Senha">
+				<p:fieldset legend="Alterar Senha">
+					<h:form>
+						<p:messages autoUpdate="true"/>
+						<h:panelGrid columns="2">							
+							<p:outputLabel for="inputSenha" value="Nova Senha:"/>
+							<p:password id="inputSenha" maxlength="15" required="true" match="inputConfirmacao" 
+								value="#{usuarioMbean.facade.usuario2.nova}"
+								feedback="false"/>
+							
+							<p:outputLabel for="inputConfirmacao" value="Confirmação:"/>
+							<p:password id="inputConfirmacao" maxlength="15" required="true" feedback="false" 
+								value="#{usuarioMbean.facade.usuario2.confirmacao}"/>
+						</h:panelGrid>
+						<p:commandButton value="Alterar" update="@form" actionListener="#{usuarioMbean.alterar}"/>
+					</h:form>
+				</p:fieldset>
+			</p:panel>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

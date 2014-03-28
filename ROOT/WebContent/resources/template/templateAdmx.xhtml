@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<c:set var="ctx" value="${request.contextPath}" scope="application"/>
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Gentec | Management Training and IT Tools</title>
+<h:outputStylesheet name="portal-gentec-min.css" library="css"/>
+</h:head>
+<h:body>
+<f:view contentType="text/html" encoding="UTF-8">
+	<div id="gentec-portal-container">
+		<div id="gentec-portal-topo">
+			<div id="gentec-portal-topo-base">
+				
+			</div>
+		</div>
+		<div id="gentec-portal-admx-conteudo">
+			<h:form>
+				<p:megaMenu>
+					<p:submenu label="Usuário">
+						<p:column>
+							<p:submenu label="">
+								<p:menuitem value="Novo" url="/admx/usuario/novo-usuario.jsf"/>
+								<p:menuitem value="Alterar Senha" url="/admx/usuario/alterar-senha.jsf"/>
+							</p:submenu>
+						</p:column>
+					</p:submenu>
+					<p:submenu label="Banner">
+						<p:column>
+							<p:submenu label="Principal">
+								<p:menuitem value="Adicionar" url="/admx/banner/add.jsf"/>
+								<p:menuitem value="Gerenciar" url="/admx/banner/gerenciar.jsf"/>
+							</p:submenu>
+						</p:column>
+					</p:submenu>
+					<p:submenu label="Contatos">
+						<p:column>
+							<p:submenu label="Principal">
+								<p:menuitem value="Gerenciar" url="/admx/contato/gerenciar.jsf"/>
+							</p:submenu>
+						</p:column>
+					</p:submenu>
+					<p:submenu label="Produto">
+						<p:column>
+							<p:submenu label="Principal">
+								<p:menuitem value="Adicionar" url="/admx/produto/add.jsf"/>
+								<p:menuitem value="Gerenciar" url="/admx/produto/gerenciar.jsf"/>
+							</p:submenu>
+						</p:column>
+					</p:submenu>
+					<p:menuitem value="Sair" url="/pages/logout.jsf"/>
+				</p:megaMenu>
+			</h:form>
+			
+			<ui:insert name="body">
+				
+			</ui:insert>
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		function goPage(url){
+			var height = $(window).height();
+			window.open(url,'Contato','height='+height+',width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,status=yes');
+		}
+	</script>
+</f:view>
+</h:body>
+</html>

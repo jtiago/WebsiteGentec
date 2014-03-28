@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/template.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-body-parceiros">
+			<h:form>
+				<p:panel header="&raquo; Clique na marca e peça sua cotação!">
+					<p:dataGrid var="item" value="#{parceirosMbean.facade.listaParceiros}" columns="8">
+						
+							<p:column>
+								<p:panel >
+									<h:panelGrid columns="1" style="margin: 0 auto;">
+										<p:commandLink id="link" onclick="javascript:document.location.href = 'cotacao.jsf'">
+										<p:graphicImage width="60" height="40" url="/resources/parceiros/${item.imagem}" />
+										</p:commandLink>
+									</h:panelGrid>
+									
+									<div class="clear"></div>
+								</p:panel>
+							</p:column>
+					</p:dataGrid>
+				</p:panel>
+			</h:form>
+		</div>
+	
+		<div id="gentec-portal-body-carousel">
+			<p:carousel itemStyle="width: 930px; height: 380px;" autoPlayInterval="7000" 
+				rows="1" effect="easeInStrong" circular="true" vertical="true">
+				<c:forEach var="item" items="#{bannerMbean.facade.banners}">
+					<p:graphicImage width="930" height="380" value="/resources/carousel/#{item.imagem}" />
+				</c:forEach>
+			</p:carousel>
+		</div>
+		
+		<div id="gentec-portal-body-conteudo">
+			<div id="gentec-portal-body-conteudo-left">
+				<p:panel header="&raquo; Notícias / Tecnologia" style="height: 270px;">
+					<p:feedReader value="http://g1.globo.com/dynamo/tecnologia/rss2.xml" var="feed" size="8">  
+						 [+]&nbsp;
+						 <h:outputLink value="#{feed.link}" target="_blank">
+						 	<h:outputText value="#{feed.title}" style="font-weight: bold"/><br/>
+						 </h:outputLink>
+					</p:feedReader>
+				</p:panel>
+			</div>
+			<div id="gentec-portal-body-conteudo-right">
+				<p:panel header="&raquo; Newsletter" style="height: 270px;">
+					<div id="gentec-portal-body-conteudo-right-newsletter">
+						Receba Notícias e Promoções Dell direto na sua caixa de E-mail.<br/>
+						Assine já nossa Newsletter e fique por dentro.
+						
+						<h:form>
+							<p:inputText id="inputEmail" style="width: 250px;" validator="emailValidator" value="#{newsletterMbean.facade.newsletter.email}"
+								required="true" requiredMessage="E-mail: Erro de Validação : Campo obrigatório."/>&nbsp;
+							<p:commandButton value="Assinar" update="@form" actionListener="#{newsletterMbean.assinar}"/>
+						</h:form>
+					</div>
+				</p:panel>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

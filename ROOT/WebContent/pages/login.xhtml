@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/template.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-body-conteudo" style="margin-top: -3px;">
+			<div id="gentec-portal-body-login">
+				<p:panel header="&raquo; Autenticação">
+					<h:form>
+						<h:panelGrid columns="2">
+							<p:outputLabel for="inputUsuario" value="Usuário:"/>
+							<p:inputText id="inputUsuario" required="true" maxlength="15"
+								value="#{usuarioMbean.facade.usuario1.usuario}"/>
+							
+							<p:outputLabel for="inputSenha" value="Senha:"/>
+							<p:password id="inputSenha" required="true" maxlength="15" feedback="false"
+								value="#{usuarioMbean.facade.usuario1.senha}"/>
+							
+							<h:outputLabel/>
+							<p:commandButton value="Autenticar" update="@form" actionListener="#{usuarioMbean.login}"/>
+						</h:panelGrid>
+					</h:form>
+				</p:panel>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

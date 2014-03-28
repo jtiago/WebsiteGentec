@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<c:set var="ctx" value="${request.contextPath}" scope="application"/>
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Gentec | Management Training and IT Tools</title>
+<h:outputStylesheet name="portal-gentec-min.css" library="css"/>
+</h:head>
+<h:body>
+	<div id="gentec-portal-container">
+		<div id="gentec-portal-topo">
+			<div id="gentec-portal-topo-base" />
+			<div id="gentec-portal-menu">
+				<div id="gentec-portal-menu-base">
+					<ul>
+						<li class="border-right"><a href="${ctx}/pages/index.jsf">Home</a></li>
+						<li class="border-right"><a href="${ctx}/pages/empresa.jsf">Empresa</a></li>
+						<li class="border-right"><a href="${ctx}/pages/produtos.jsf">Produtos</a></li>
+						<li class="border-right"><a href="${ctx}/pages/cotacao.jsf">Cotação</a></li>
+						<li class="border-right"><a href="${ctx}/pages/parceiros.jsf">Parceiros</a></li>
+						<li><a href="${ctx}/pages/contato.jsf">Contato</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="gentec-portal-bar">
+			
+		</div>
+		
+		<div id="gentec-portal-body">
+			<ui:insert name="body">
+			
+			</ui:insert>
+		</div>
+		
+		<div id="gentec-portal-footer">
+			<div id="gentec-portal-footer-base">
+				<div id="gentec-portal-footer-cliente">
+					<!-- 
+					<a href="http://www.vmware.com/br/" target="_blank">
+						<p:graphicImage width="100" height="90" url="/resources/clientes/vmware.png"/>
+					</a>
+					<a href="http://www.dell.com/br" target="_blank">
+						<p:graphicImage width="100" height="90" url="/resources/clientes/dell.png"/>
+					</a> -->
+					<!-- 
+					<a href="http://www.microsoft.com/brasil" target="_blank">
+						<p:graphicImage width="100" height="90" url="/resources/clientes/microsoft.png"/>
+					</a>
+					<a href="http://br.redhat.com/" target="_blank">
+						<p:graphicImage width="100" height="90" url="/resources/clientes/redhat.png"/>
+					</a>
+					<a href="http://www.cisco.com/web/BR" target="_blank">
+						<p:graphicImage width="100" height="90" url="/resources/clientes/cisco.png"/>
+					</a>
+					<a href="http://www.citrix.com.br/" target="_blank">
+						<p:graphicImage width="100" height="90" url="/resources/clientes/citrix.png"/>
+					</a>
+					-->
+				</div>
+				<div id="gentec-portal-footer-base-endereco">
+					Gentec | Management Training and IT Tools<br/>
+    				QNA 3 Número 8, Taguatinga Norte<br/>
+					CEP 72110-030 – Brasília/DF - 
+					<a href="http://goo.gl/maps/tKzz9" target="_blanck">Google Maps</a><br/>
+    				Telefone: +55(61) 3202-1314 / Fax: +55(61) 3202-1314<br/>
+    				&copy; Copyright 2012 - Todos os direitos reservados para <a href="${ctx}/pages/login.jsf">Gentec IT</a><br/>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

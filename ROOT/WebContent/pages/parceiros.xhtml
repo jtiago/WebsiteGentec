@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<ui:composition template="/resources/template/template.xhtml">
+	<ui:define name="body">
+		<div id="gentec-portal-body-conteudo" style="margin-top: -3px;">
+			<div id="gentec-portal-body-conteudo-text">
+				<p:dataGrid var="item" value="#{parceirosMbean.facade.listaParceiros}" columns="4">
+					<p:column>
+						<p:panel>
+							<h:panelGrid columns="1" style="margin: 0 auto;">
+								<p:graphicImage width="140" height="100" url="/resources/parceiros/${item.imagem}"/>
+							</h:panelGrid>
+							<div class="clear"></div>
+						</p:panel>
+					</p:column>
+				</p:dataGrid>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

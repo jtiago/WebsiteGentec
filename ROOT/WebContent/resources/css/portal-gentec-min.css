@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+*{font-size: 14px; font-family:Arial, Helvetica, sans-serif; margin: 0; padding: 0;}
+body{width: 100%; margin: 0; padding: 0; background: url("../resources/image/bg.png");}
+ul{margin: 0; padding: 0; list-style: none;}
+a{color: #324654; text-decoration: none;}
+a:HOVER{text-decoration: underline;}
+button{padding: 0 3px;}
+img{text-decoration: none};
+a img{text-decoration: none;}
+
+.ui-panel{background: #FFF;}
+
+.clear{clear: both;}
+.border-right{border-right: 1px solid #F6F6F6;}
+
+#gentec-portal-container{width: 100%;}
+/* 	#gentec-portal-topo{height: 130px;} */
+	#gentec-portal-topo{height: 130px; width:950px; margin: 0 auto; position: relative;}
+		#gentec-portal-topo-base{float: left; width: 350px; height: 130px; background: url("../resources/image/logomarca.png") no-repeat center left;}
+	
+	#gentec-portal-menu{float:right; height: 40px; background: #f7b64a;}
+		#gentec-portal-menu-base{width: 550px; height: 40px; margin: 0 auto;}
+			#gentec-portal-menu-base ul{padding-top: 12px;}
+			#gentec-portal-menu-base ul li{display: inline; padding: 0 10px;}
+			#gentec-portal-menu-base ul li a{font-weight: bold; color: #FFFFFF; font-size: 16px;}
+			#gentec-portal-menu-base ul li a:HOVER{font-weight: bold; color: #000000;}  
+	
+	#gentec-portal-bar{height: 50px; background: #F6F6F6; border-top: 15px solid #E6E6E6; border-bottom: 15px solid #E6E6E6;}
+	
+	#gentec-portal-body{width: 950px; background: #FFF; margin: 0 auto; padding: 10px 0 10px 0; margin-top: -65px;}
+		#gentec-portal-body-carousel{width: 930px; height: 420px; margin-left: 7px;float:left;}
+		#gentec-portal-body-parceiros{width: 930px; height: 250px; margin-left: 7px;}
+		
+		#gentec-portal-body-conteudo{width: 930px; margin: 50px 0 0 10px;}
+			#gentec-portal-body-conteudo-left{width: 460px; float: left; margin-left: -4px; border: 1px solid #F6F6F6;}
+				#gentec-portal-body-conteudo-left ul{margin: 5px 0 0 5px;}
+				#gentec-portal-body-conteudo-left ul li{margin: 5px 0;}
+				
+			#gentec-portal-body-conteudo-right{width: 460px; float: right; margin-right: -4px; border: 1px solid #F6F6F6;}
+				#gentec-portal-body-conteudo-right-newsletter{padding: 160px 0 5px 5px; color: #324654; background: url("../resources/image/newsletter.jpg") no-repeat center top;}
+				
+			#gentec-portal-body-conteudo-text{text-align: justify;}
+			.gentec-portal-body-conteudo-contato{background: url("./image/newsletter.jpg") no-repeat center;}
+			
+			.gentec-portal-body-conteudo-produto-imagem{width: 300px; float: left;}
+			.gentec-portal-body-conteudo-produto-descicao{width: 565px; float: right;}
+			
+			.gentec-portal-body-s-parceiros-imagem{width: 200px; float: left;}
+			
+			#gentec-portal-body-login{width: 300px; margin: 0 auto;}
+	
+/* 	#gentec-portal-footer{height: 130px; background: url("../image/bg_fill.png");} */
+	#gentec-portal-footer{height: 130px; margin-top: 5px;}
+		#gentec-portal-footer-base{width: 950px; height: 130px; margin: 0 auto; border-top: 1px solid #CCC; padding-top: 5px;}
+			#gentec-portal-footer-cliente{float: right;}
+				#gentec-portal-footer-cliente img{margin: 0 -1px;}
+				#gentec-portal-footer-cliente a:HOVER{text-decoration: none;}
+			#gentec-portal-footer-base-endereco{padding-top: 20px; color: #324654; float: left; font-size: 11px;}
+			
+/* Admx */
+#gentec-portal-admx-conteudo{width: 950px; border: 1px solid #E6E6E6; margin: 0 auto;}
+	#gentec-portal-admx-conteudo-text{}
+
+
